@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +17,7 @@ namespace ProjectPenjualan
             while (true)
             {
                 TampilMenu();
-                Console.Clear();
-                Console.WriteLine("Menu Aplikasi");
-                Console.WriteLine("");
-                Console.WriteLine("1. Tambah Data Penjualan");
-                Console.WriteLine("2. Hapus Data Penjualana");
-                Console.WriteLine("3. Tampilkan Data Penjualan");
-                Console.WriteLine("4. Keluar");
-                Console.WriteLine("");
+
                 Console.Write("\nNomor Menu [1..4]: ");
                 int nomorMenu = Convert.ToInt32(Console.ReadLine());
 
@@ -56,6 +49,15 @@ namespace ProjectPenjualan
             Console.Clear();
 
             // PERINTAH: lengkapi kode untuk menampilkan menu
+            Console.Clear();
+            Console.WriteLine("Menu Aplikasi");
+            Console.WriteLine("");
+            Console.WriteLine("1. Tambah Data Penjualan");
+            Console.WriteLine("2. Hapus Data Penjualana");
+            Console.WriteLine("3. Tampilkan Data Penjualan");
+            Console.WriteLine("4. Keluar");
+            Console.WriteLine("");
+            
         }
 
         static void TambahPenjualan()
@@ -65,15 +67,15 @@ namespace ProjectPenjualan
             // PERINTAH: lengkapi kode untuk menambahkan penjualan ke dalam collection
             Console.WriteLine("");
             Console.Write(" Nota : ");
-            int nota = int.Parse(Console.ReadLine());
+            string nota = Console.ReadLine();
             Console.Write(" Tanggal : ");
             int tanggal = int.Parse(Console.ReadLine());
             Console.WriteLine("Customer : ");
             string customer = Console.ReadLine();
             Console.Write(" Total Nota : ");
-            double TotalNota = Double.Parse(Console.ReadLine());
+            double totalNota = Double.Parse(Console.ReadLine());
 
-            daftarPenjualan.Add(new Penjualan() { Nota = nota, Tanggal = tanggal, Costumers = customer, Jenis = jenis, TotalNota = totalnota }});
+            daftarPenjualan.Add(new Penjualan() { Nota = nota, Tanggal = tanggal, Costumers = customer, TotalNota = totalNota });
             Console.WriteLine("\nTekan ENTER untuk kembali ke menu");
             Console.ReadKey();
         }
@@ -115,6 +117,24 @@ namespace ProjectPenjualan
             Console.Clear();
 
             // PERINTAH: lengkapi kode untuk menampilkan daftar penjualan yang ada di dalam collection
+            Console.Clear();
+            Console.WriteLine(" Menampilkan data Penjualan ");
+            Console.WriteLine("");
+            int No = 1;
+            bool Data = false;
+            foreach ( Penjualan penjualan in daftarPenjualan)
+            {
+                Console.WriteLine("{0}. {1}, {2}, {3} ,{4},{5}",
+                No, penjualan.Nota,penjualan.Costumers, penjualan.Tanggal, penjualan.Jenis, penjualan.TotalNota);
+                Data = true;
+                No++;
+            }
+            if (Data == false)
+            {
+                Console.WriteLine("");
+                Console.WriteLine(" Maaf data Kosong ");
+
+            }
 
             Console.WriteLine("\nTekan enter untuk kembali ke menu");
             Console.ReadKey();
