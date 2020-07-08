@@ -93,6 +93,7 @@ namespace ProjectPenjualan
             int H = 0;
             bool Data = false;
 
+            
             foreach (Penjualan penjualan in daftarPenjualan)
             {
                 if (Delete == penjualan.Nota)
